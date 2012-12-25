@@ -2,12 +2,12 @@
 #define RED PB4
 #define GREEN PB3
 #define BLUE PB0
-#define output_low(port,pin) port &= ~(1<<pin)
+#define output_low(port,pin) port &= ~(1<<pin)			//Tu sa makra, zeby ulatwic czytanie kodu
 #define output_high(port,pin) port |= (1<<pin)
 #define set_input(portdir,pin) portdir &= ~(1<<pin)
 #define set_output(portdir,pin) portdir |= (1<<pin)
 
-void delay_ms(uint8_t ms) {
+void delay_ms(uint8_t ms) {			//tego nie ogarniam, tu jest jakas deklaracja licznika, zeby odstepy byly liczone prawidlowo w ms
   uint16_t delay_count = F_CPU / 17500;
 	volatile uint16_t i;
 	
@@ -24,9 +24,9 @@ int main(void) {
 	set_output(DDRB, GREEN);
 	set_output(DDRB, RED);
 	
-/*void blink(color, time)
+/*void blink(color, time)				[Próbowalem tutaj zagniezdzic funkcje, zeby skrocic kod ponizej, ale nie chce mi sie skompilowac, czegos nie zadeklarowalem chyba]
 	{
-	output_high(PORTB, color);
+	output_high(PORTB, color);			
 	delay_ms(time);
 	output_low(PORTB, color);
 	delay_ms(time);
